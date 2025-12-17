@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* 1. Reset Básico y Variables Actualizadas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Fuente base */
+}
+
+/* Variables de Color (¡NUEVOS COLORES OSCUROS!) */
+:root {
+    --color-primario: #E80000; /* Rojo de Rendimiento */
+    --color-secundario: #2a2a2a; /* Gris Profundo */
+    --color-fondo: #111111; /* Negro/Gris Muy Oscuro */
+    --color-texto: #f0f0f0; /* Blanco/Gris Claro */
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* =========================================
+   HEADER MEJORADO (Estilo Agresivo)
+========================================= */
+.header {
+    background-color: #000000; /* NEGRO PURO para camuflar el fondo del logo JPG */
+    padding: 10px 5%; /* Un poco más compacto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-primario); /* Línea roja abajo del menú */
+    
+    /* Hacemos que el menú se quede fijo al bajar (Sticky) */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Para que quede encima de las fotos */
+}
+
+/* Estilo para la imagen del Logo */
+.logo-img {
+    height: 70px; /* Ajusta este número si lo quieres más grande o chico */
+    display: block;
+    object-fit: contain; /* Asegura que no se estire */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 25px;
+    font-weight: 700; /* Letra más gruesa */
+    font-family: 'Oswald', sans-serif; /* Fuente tipo título */
+    letter-spacing: 1px;
+    font-size: 1.1em;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--color-primario); /* Se pone rojo al pasar el mouse */
+}
+
+.icons i {
+    color: white;
+    font-size: 1.2em;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icons i:hover {
+    color: var(--color-primario);
+    transform: scale(1.2);
+}
+
+/* 3. Estilos del Banner (Hero) */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/banner.jpg') no-repeat center center/cover; /* Reemplaza 'banner.jpg' con una imagen tuya */
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.btn-principal {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #e53900; /* Un tono más oscuro */
+}
+
+
+/* 4. Estilos del Catálogo (Grid de Productos) */
+.products-grid {
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.products-grid h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--color-primario);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Sistema de cuadrícula para productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 300px mínimo por columna */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar el grid */
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative; /* Para la etiqueta Sold Out */
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px; /* Altura fija para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+}
+
+.product-card .info {
+    padding: 20px;
+}
+
+.product-card h3 {
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 1.3em;
+    color: var(--color-primario);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-product {
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.btn-product:hover {
+    background-color: var(--color-primario);
+}
+
+/* Etiqueta Sold Out */
+.tag.sold-out {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+/* 5. Estilos del Pie de Página (Footer) */
+.footer {
+    background-color: var(--color-secundario);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer .social-icons a {
+    color: white;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+    color: var(--color-primario);
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif; /* Fuente agresiva para títulos */
+    letter-spacing: 1px;
+}
+
+.product-card {
+    background-color: var(--color-secundario); /* Gris Oscuro para Tarjetas */
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra intensa */
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borde sutil */
+}
+
+.price {
+    font-size: 1.4em;
+    color: var(--color-primario); /* Precio en Rojo */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.btn-product {
+    background-color: var(--color-primario); /* Botón de Pedido en Rojo */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-weight: 600;
+}
+
+.btn-product:hover {
+    background-color: #ff3333; /* Rojo más claro al pasar el mouse */
+}
+
+.colors-container {
+    display: flex;
+    gap: 10px; /* Espacio entre bolitas */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.color-option {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    position: relative; /* Necesario para poner la X */
+    transition: transform 0.2s;
+}
+
+.color-option:hover {
+    transform: scale(1.2); /* Crece un poquito al pasar el mouse */
+    border-color: #000;
+}
+
+/* --- Estilo para Color Agotado (Sold Out) --- */
+.color-option.sold-out {
+    cursor: not-allowed;
+   /* opacity: 0.6; /* Se ve más opaco */
+    border: 1px solid grey; /* Borde rojo */
+}
+
+.color-option.sold-out::before,
+.color-option.sold-out::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: grey;
+}
+
+.color-option.sold-out::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.color-option.sold-out::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
